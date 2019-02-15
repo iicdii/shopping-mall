@@ -7,8 +7,20 @@
   background-size: 32px 32px;
 }
 
+.ant-layout-header .container {
+  padding: 0;
+}
+
 .ant-layout-header .ant-badge-count {
   right: -5px;
   top: -7px;
   box-shadow: none;
+}
+
+.ant-menu-item .ant-badge a {
+  color: rgba(255, 255, 255, 0.65);
+}
+
+.ant-menu-item.ant-menu-item-active .ant-badge a {
+  color: #fff;
 }

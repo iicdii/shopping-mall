@@ -6,23 +6,17 @@
   width: 100%;
 }
 
-.wishlist-item {
-  padding-bottom: 10px;
-}
-
 .wishlist .cover-image {
   min-height: 130px;
 }
 
-.wishlist .title {
-  height: 60px;
-  margin-bottom: 8px;
+.price,
+.sales-price {
+  font-size: 11px;
 }
 
-.wishlist .price {
-  height: 20px;
-}
-
-.wishlist .buttons {
+.order-price {
+  font-size: 14px;
+  font-weight: bold;
   text-align: right;
 }

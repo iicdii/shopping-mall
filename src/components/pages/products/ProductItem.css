@@ -7,7 +7,7 @@
 }
 
 .product-item {
-  padding-bottom: 10px;
+  padding-bottom: 40px;
 }
 
 .products .cover-image {
@@ -15,14 +15,32 @@
 }
 
 .products .title {
-  height: 60px;
   margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.products .bottom {
+  display: flex;
+  flex: 1;
 }
 
 .products .price {
-  height: 20px;
+  font-size: 12px;
+  flex: 0.8;
+  text-align: left;
 }
 
 .products .buttons {
+  flex: 0.2;
   text-align: right;
+}
+
+.price-text {
+  font-weight: bold;
+  font-size: 20px;
+  letter-spacing: -.5px;
+}
+
+.won {
+  margin-left: 1px;
 }

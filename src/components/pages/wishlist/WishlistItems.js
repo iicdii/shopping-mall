@@ -53,11 +53,12 @@ class WishlistItems extends PureComponent {
                   <div className="ant-table-body">
                     <table>
                       <colgroup>
-                        <col />
-                        <col />
-                        <col />
-                        <col />
-                        <col />
+                        <col width="5%" />
+                        <col width="52%" />
+                        <col width="10%" />
+                        <col width="11%" />
+                        <col width="11%" />
+                        <col width="11%" />
                       </colgroup>
                       <thead className="ant-table-thead">
                         <tr>
@@ -67,16 +68,16 @@ class WishlistItems extends PureComponent {
                           <th>
                             <div>상품정보</div>
                           </th>
-                          <th>
+                          <th className="center">
                             <div>수량</div>
                           </th>
-                          <th>
+                          <th className="center">
                             <div>상품금액</div>
                           </th>
-                          <th>
+                          <th className="center">
                             <div>할인금액</div>
                           </th>
-                          <th>
+                          <th className="center">
                             <div>주문금액</div>
                           </th>
                         </tr>

@@ -26,13 +26,18 @@ export default class ProductItem extends PureComponent {
           <img src={item.coverImage} alt={item.title} />
         </div>
         <div className="title">{item.title}</div>
-        <div className="price">{numberFormat(item.price)}원</div>
-        <div className="buttons">
-          <Button
-            shape="circle"
-            icon="shopping-cart"
-            onClick={this.handleAddCart}
-          />
+        <div className="bottom">
+          <div className="price">
+            <span className="price-text">{numberFormat(item.price)}</span>
+            <span className="won">원</span>
+          </div>
+          <div className="buttons">
+            <Button
+              shape="circle"
+              icon="shopping-cart"
+              onClick={this.handleAddCart}
+            />
+          </div>
         </div>
       </Col>
     );

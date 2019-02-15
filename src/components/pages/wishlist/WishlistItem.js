@@ -48,13 +48,16 @@ export default class WishlistItem extends PureComponent {
         <td>
           <InputNumber
             min={1}
+            max={100000}
             defaultValue={cartData.quantity}
             onChange={this.handleQuantityChange}
           />
         </td>
-        <td>{numberFormat(this.price)}원</td>
-        <td>{numberFormat(cartData.salesPrice)}원</td>
-        <td>{numberFormat(this.price - cartData.salesPrice)}원</td>
+        <td className="price">{numberFormat(this.price)}원</td>
+        <td className="sales-price">{numberFormat(cartData.salesPrice)}원</td>
+        <td className="order-price">
+          {numberFormat(this.price - cartData.salesPrice)}원
+        </td>
       </tr>
     );
   }

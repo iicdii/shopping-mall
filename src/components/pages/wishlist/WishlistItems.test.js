@@ -26,4 +26,14 @@ describe('<WishlistItems>', () => {
 
     expect(wrapper.find('WishlistItem').exists()).toBe(true);
   });
+
+  it('<col> 갯수와 <th> 갯수 일치', () => {
+    // 장바구니에 데이터 3개 삽입
+    provider.setState({ cartList: [...productItems].slice(0, 3) });
+    wrapper.find('WishlistItems').update();
+    const col = wrapper.find('WishlistItems').find('col');
+    const th = wrapper.find('WishlistItems').find('th');
+
+    expect(col.length).toBe(th.length);
+  });
 });
