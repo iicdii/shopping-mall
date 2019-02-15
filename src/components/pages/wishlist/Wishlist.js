@@ -6,10 +6,8 @@ export default class Wishlist extends Component {
   render() {
     return (
       <PageLayout>
-        <div className="wishlist">
-          Wishlist
-        </div>
+        <div className="wishlist">Wishlist</div>
       </PageLayout>
-    )
+    );
   }
 }

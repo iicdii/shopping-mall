@@ -7,7 +7,7 @@ import './ProductItem.css';
 export default class ProductItem extends PureComponent {
   static propTypes = {
     item: PropTypes.object,
-    cart: PropTypes.object.isRequired
+    cart: PropTypes.object.isRequired,
   };
 
   handleAddCart = () => {

@@ -14,6 +14,6 @@ export default class BasicLayout extends Component {
           <Route path="/wishlist" component={Wishlist} />
         </div>
       </Router>
-    )
+    );
   }
 }

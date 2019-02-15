@@ -9,6 +9,4 @@ const groupItems = (items, sliceCount) => {
   return list;
 };
 
-export {
-  groupItems
-};
+export { groupItems };

@@ -8,6 +8,6 @@ export default class Footer extends Component {
       <Layout.Footer className="footer">
         <div className="footer-title">Class101 Inc.</div>
       </Layout.Footer>
-    )
+    );
   }
 }

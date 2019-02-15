@@ -47,25 +47,23 @@ export class CartContextProvider extends React.Component {
     return status;
   };
 
-  render () {
+  render() {
     return (
       <CartContext.Provider
         value={{
           ...this.state,
           addCart: this.addCart,
-          removeCart: this.removeCart
+          removeCart: this.removeCart,
         }}
       >
         {this.props.children}
       </CartContext.Provider>
-    )
+    );
   }
 }
 
 export const withCartContext = ChildComponent => props => (
   <CartContext.Consumer>
-    {
-      context => <ChildComponent {...props} cart={context}  />
-    }
+    {context => <ChildComponent {...props} cart={context} />}
   </CartContext.Consumer>
 );

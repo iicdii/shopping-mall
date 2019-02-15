@@ -7,7 +7,7 @@ import { withCartContext } from '../../../contexts/CartContext';
 class ProductItems extends PureComponent {
   static propTypes = {
     items: PropTypes.array,
-    cart: PropTypes.object.isRequired
+    cart: PropTypes.object.isRequired,
   };
 
   render() {
@@ -16,11 +16,7 @@ class ProductItems extends PureComponent {
     return (
       <Row gutter={20} className="product-items">
         {items.map(item => (
-          <ProductItem
-            key={item.id}
-            item={item}
-            cart={cart}
-          />
+          <ProductItem key={item.id} item={item} cart={cart} />
         ))}
       </Row>
     );

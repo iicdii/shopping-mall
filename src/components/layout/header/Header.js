@@ -28,7 +28,7 @@ class Header extends Component {
           </Menu.Item>
         </Menu>
       </Layout.Header>
-    )
+    );
   }
 }
 

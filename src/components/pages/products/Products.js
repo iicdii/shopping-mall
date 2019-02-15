@@ -8,7 +8,7 @@ import './Products.css';
 class Products extends Component {
   get list() {
     // 노출도 순으로 내림차순 정렬
-    const items = [...productItems].sort((a,b) => b.score - a.score);
+    const items = [...productItems].sort((a, b) => b.score - a.score);
 
     return groupItems(items, 5);
   }
@@ -20,11 +20,11 @@ class Products extends Component {
       <PageLayout>
         <div className="products">
           {list.map((items, i) => (
-            <ProductItems key={i} items={items}/>
+            <ProductItems key={i} items={items} />
           ))}
         </div>
       </PageLayout>
-    )
+    );
   }
 }
 
