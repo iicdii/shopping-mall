@@ -16,7 +16,6 @@ describe('<Product>', () => {
       </CartContextProvider>
     );
     const provider = wrapper.find('CartContextProvider');
-
     const item = wrapper.find('ProductItem').first();
     const itemId = item.prop('item').id;
     item.find('button').simulate('click');
@@ -34,7 +33,6 @@ describe('<Product>', () => {
       </CartContextProvider>
     );
     const provider = wrapper.find('CartContextProvider');
-
     const item = wrapper.find('ProductItem').first();
     const itemId = item.prop('item').id;
     item.find('button').simulate('click');
