@@ -1,0 +1,8 @@
+.logo {
+  width: 32px;
+  height: 32px;
+  background: url(../../../assets/img/ic-logo-small-white.png) no-repeat;
+  margin: 16px 32px 0 0;
+  float: left;
+  background-size: 32px 32px;
+}

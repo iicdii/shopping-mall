@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import BasicLayout from './components/layout/BasicLayout';
+import 'antd/dist/antd.css';
 import './App.css';
+import BasicLayout from './components/layout/BasicLayout';
 
 class App extends Component {
   render() {
