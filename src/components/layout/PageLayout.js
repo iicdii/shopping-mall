@@ -12,7 +12,9 @@ export default class PageLayout extends Component {
       <Layout>
         <Header />
         <Content className="content">
-          {this.props.children}
+          <div className="container">
+            {this.props.children}
+          </div>
         </Content>
         <Footer />
       </Layout>

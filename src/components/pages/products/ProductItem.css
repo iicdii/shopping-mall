@@ -1,0 +1,23 @@
+.products {
+  padding: 20px;
+}
+.products img {
+  width: 100%;
+}
+
+.product-item {
+  padding-bottom: 10px;
+}
+.cover-image {
+  height: 120px;
+}
+.title {
+  height: 60px;
+  margin-bottom: 8px;
+}
+.price {
+  height: 20px;
+}
+.buttons {
+  text-align: right;
+}

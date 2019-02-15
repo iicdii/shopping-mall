@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PageLayout from '../layout/PageLayout';
+import PageLayout from '../../layout/PageLayout';
 import './Home.css';
 
 export default class Home extends Component {
