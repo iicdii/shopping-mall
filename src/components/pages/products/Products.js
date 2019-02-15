@@ -5,8 +5,9 @@ import ProductItems from './ProductItems';
 import { groupItems } from './functions';
 import './Products.css';
 
-export default class Products extends Component {
+class Products extends Component {
   get list() {
+    // 노출도 순으로 내림차순 정렬
     const items = [...productItems].sort((a,b) => b.score - a.score);
 
     return groupItems(items, 5);
@@ -26,3 +27,5 @@ export default class Products extends Component {
     )
   }
 }
+
+export default Products;
