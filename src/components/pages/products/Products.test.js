@@ -6,6 +6,14 @@ import ProductItems from './ProductItems';
 
 describe('<Products>', () => {
   it('상품 목록 렌더링', () => {
+    const row = [...productItems].slice(0, 5);
+    const wrapper = mount(<ProductItems key={0} items={row} />);
+
+    expect(wrapper.find('ProductItem')).toBeDefined();
+    expect(wrapper.find('ProductItem')).toHaveLength(row.length);
+  });
+
+  it('5개 그룹화 상품 목록 렌더링', () => {
     const list = groupItems([...productItems], 5);
 
     list.forEach((row, i) => {

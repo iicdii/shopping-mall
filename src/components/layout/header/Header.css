@@ -6,3 +6,9 @@
   float: left;
   background-size: 32px 32px;
 }
+
+.ant-layout-header .ant-badge-count {
+  right: -5px;
+  top: -7px;
+  box-shadow: none;
+}

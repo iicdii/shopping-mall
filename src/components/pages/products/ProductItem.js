@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Col, Button, message } from 'antd';
+import { Col, Button } from 'antd';
 import PropTypes from 'prop-types';
 import numberFormat from '../../../utils/number-format';
 import './ProductItem.css';
@@ -14,19 +14,7 @@ export default class ProductItem extends PureComponent {
     const { item, cart } = this.props;
     const { addCart } = cart;
 
-    const status = addCart(item);
-
-    switch (status) {
-      case 1:
-        message.success('장바구니에 상품이 추가 되었습니다.');
-        break;
-      case -1:
-        message.success('장바구니에 상품이 추가 되었습니다.');
-        break;
-      default:
-        message.error('에러가 발생하였습니다. 잠시후 다시 시도해주세요.');
-        break;
-    }
+    addCart(item);
   };
 
   render() {

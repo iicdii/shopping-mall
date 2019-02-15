@@ -14,7 +14,7 @@ class ProductItems extends PureComponent {
     const { items, cart } = this.props;
 
     return (
-      <Row gutter={20} className="product-items">
+      <Row type="flex" className="product-items" justify="space-between">
         {items.map(item => (
           <ProductItem key={item.id} item={item} cart={cart} />
         ))}

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
-import { Layout, Menu } from 'antd';
+import { Layout, Menu, Badge } from 'antd';
 import { Link } from 'react-router-dom';
 import { withRouter } from 'react-router';
+import { withCartContext } from '../../../contexts/CartContext';
 import './Header.css';
 
 class Header extends Component {
   render() {
-    const { match } = this.props;
+    const { match, cart } = this.props;
+    const { cartList } = cart;
 
     return (
       <Layout.Header>
@@ -24,7 +26,9 @@ class Header extends Component {
             <Link to="/products">Products</Link>
           </Menu.Item>
           <Menu.Item key="/wishlist">
-            <Link to="/wishlist">Wishlist</Link>
+            <Badge count={cartList.length}>
+              <Link to="/wishlist">Wishlist</Link>
+            </Badge>
           </Menu.Item>
         </Menu>
       </Layout.Header>
@@ -32,4 +36,4 @@ class Header extends Component {
   }
 }
 
-export default withRouter(Header);
+export default withRouter(withCartContext(Header));
