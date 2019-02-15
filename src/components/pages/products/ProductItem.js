@@ -26,7 +26,7 @@ export default class ProductItem extends PureComponent {
           <img src={item.coverImage} alt={item.title} />
         </div>
         <div className="title">{item.title}</div>
-        <div className="price">{numberFormat(item.price)}</div>
+        <div className="price">{numberFormat(item.price)}원</div>
         <div className="buttons">
           <Button
             shape="circle"

@@ -1,28 +1,28 @@
-.products {
+.wishlist {
   padding: 20px;
 }
 
-.products img {
+.wishlist img {
   width: 100%;
 }
 
-.product-item {
+.wishlist-item {
   padding-bottom: 10px;
 }
 
-.products .cover-image {
+.wishlist .cover-image {
   min-height: 130px;
 }
 
-.products .title {
+.wishlist .title {
   height: 60px;
   margin-bottom: 8px;
 }
 
-.products .price {
+.wishlist .price {
   height: 20px;
 }
 
-.products .buttons {
+.wishlist .buttons {
   text-align: right;
 }

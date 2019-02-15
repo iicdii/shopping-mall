@@ -4,7 +4,7 @@ import productItems from '../../../data/productItems';
 import ProductItems from './ProductItems';
 import { CartContextProvider } from '../../../contexts/CartContext';
 
-let row, wrapper;
+let row, wrapper, provider;
 beforeEach(() => {
   row = [...productItems].slice(0, 5);
   wrapper = mount(
@@ -12,11 +12,11 @@ beforeEach(() => {
       <ProductItems key={0} items={row} />
     </CartContextProvider>
   );
+  provider = wrapper.find('CartContextProvider');
 });
 
-describe('<Product>', () => {
+describe('<ProductItems>', () => {
   it('상품 장바구니 추가', () => {
-    const provider = wrapper.find('CartContextProvider');
     const item = wrapper.find('ProductItem').first();
     const itemId = item.prop('item').id;
     item.find('button').simulate('click');
@@ -25,7 +25,6 @@ describe('<Product>', () => {
   });
 
   it('상품 장바구니 3개 초과 추가', () => {
-    const provider = wrapper.find('CartContextProvider');
     const items = wrapper.find('ProductItem');
     // 장바구니에 상품 5개 추가
     for (let i = 0; i < row.length; i++) {
@@ -40,7 +39,6 @@ describe('<Product>', () => {
   });
 
   it('상품 장바구니 삭제', () => {
-    const provider = wrapper.find('CartContextProvider');
     const item = wrapper.find('ProductItem').first();
     const itemId = item.prop('item').id;
     item.find('button').simulate('click');
