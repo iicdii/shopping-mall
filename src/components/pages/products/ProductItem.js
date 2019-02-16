@@ -18,9 +18,15 @@ export default class ProductItem extends PureComponent {
     addCart(item);
   };
 
-  render() {
+  get isInCart() {
     const { item, cart } = this.props;
     const { cartList } = cart;
+
+    return (cartList || []).some(n => n.id === item.id);
+  }
+
+  render() {
+    const { item } = this.props;
 
     return (
       <div className="product-item">
@@ -35,9 +41,7 @@ export default class ProductItem extends PureComponent {
           </div>
           <div className="buttons">
             <Button
-              type={
-                (cartList || []).some(n => n.id === item.id) ? 'primary' : ''
-              }
+              type={this.isInCart ? 'primary' : ''}
               shape="circle"
               icon="shopping-cart"
               onClick={this.handleAddCart}

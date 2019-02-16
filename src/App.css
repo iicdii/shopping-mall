@@ -4,10 +4,13 @@
 .container {
   width: 1140px;
   height: 100%;
-  min-height: 100vh;
   padding-right: 15px;
   padding-left: 15px;
   margin-right: auto;
   margin-left: auto;
   background-color: #fff;
+}
+
+.content {
+  min-height: 100vh;
 }

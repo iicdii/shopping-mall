@@ -24,12 +24,12 @@ class Header extends Component {
             style={{ lineHeight: '64px' }}
           >
             <Menu.Item key="/products">
-              <Link to="/products">Products</Link>
+              <Link to="/products">상품</Link>
             </Menu.Item>
             <Menu.Item key="/wishlist">
               <Link to="/wishlist">
                 <Badge count={cartList.length}>
-                  <span>Wishlist</span>
+                  <span>장바구니</span>
                 </Badge>
               </Link>
             </Menu.Item>
