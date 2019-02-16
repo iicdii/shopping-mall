@@ -17,6 +17,6 @@ You can run:
   
 Project includes unit test and integration test with components using [Jest](https://jestjs.io/) and [Enzyme](https://airbnb.io/enzyme/).
 
-### License
+## License
 
 This project is licensed under the MIT License.
