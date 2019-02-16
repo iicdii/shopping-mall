@@ -1,4 +1,5 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from '../../../enzyme';
 import productItems from '../../../data/productItems';
 import WishlistItems from './WishlistItems';
@@ -17,9 +18,11 @@ const priceToNumber = text => {
 let wrapper, provider;
 beforeEach(() => {
   wrapper = mount(
-    <CartContextProvider>
-      <WishlistItems />
-    </CartContextProvider>
+    <Router>
+      <CartContextProvider>
+        <WishlistItems />
+      </CartContextProvider>
+    </Router>
   );
   provider = wrapper.find('CartContextProvider');
   provider.setState({ cartList: [...productItems].slice(0, 3) });

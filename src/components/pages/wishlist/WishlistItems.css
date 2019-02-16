@@ -1,0 +1,13 @@
+.wishlist .empty {
+  text-align: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.empty .title {
+  font-size: 24px;
+}
+
+.empty .continue-btn {
+  margin-top: 4px;
+}

@@ -50,6 +50,13 @@ export class CartContextProvider extends React.Component {
     return status;
   };
 
+  clearCart = () => {
+    this.setState({ cartList: [] });
+
+    // 1: 삭제됨
+    return 1;
+  };
+
   render() {
     return (
       <CartContext.Provider
@@ -57,6 +64,7 @@ export class CartContextProvider extends React.Component {
           ...this.state,
           addCart: this.addCart,
           removeCart: this.removeCart,
+          clearCart: this.clearCart,
         }}
       >
         {this.props.children}

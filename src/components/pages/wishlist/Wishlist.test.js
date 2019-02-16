@@ -1,11 +1,16 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { mount } from '../../../enzyme';
 import WishlistItems from './WishlistItems';
 import { getPrice, getSalesPrice, getOrderPrice } from './functions';
 
 describe('<Wishlist>', () => {
   it('<WishlistItems> 렌더링', () => {
-    const wrapper = mount(<WishlistItems />);
+    const wrapper = mount(
+      <Router>
+        <WishlistItems />
+      </Router>
+    );
 
     expect(wrapper.exists()).toBe(true);
   });

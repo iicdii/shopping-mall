@@ -102,6 +102,12 @@ export default class WishlistTable extends PureComponent {
     }
   };
 
+  handleOrder = () => {
+    const { cart } = this.props;
+    cart.clearCart();
+    this.setState({ cartData: {}, coupon: null });
+  };
+
   get total() {
     const { items } = this.props;
     const { cartData } = this.state;
@@ -242,6 +248,16 @@ export default class WishlistTable extends PureComponent {
             onClick={this.handleRemove}
           >
             선택상품 삭제
+          </Button>
+        </div>
+        <div className="order">
+          <Button
+            className="order-product"
+            type="primary"
+            size="large"
+            onClick={this.handleOrder}
+          >
+            주문하기
           </Button>
         </div>
       </div>

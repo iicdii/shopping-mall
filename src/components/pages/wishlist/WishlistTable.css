@@ -35,6 +35,11 @@
   margin-top: 10px;
 }
 
+.wishlist-items .order {
+  text-align: center;
+  margin-top: 10px;
+}
+
 tr.amount-row {
   font-size: 12px;
 }
