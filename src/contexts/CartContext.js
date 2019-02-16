@@ -23,6 +23,7 @@ export class CartContextProvider extends React.Component {
       } else {
         cartList.push(item);
         message.success('장바구니에 상품이 추가되었습니다.');
+        status = 1;
       }
     }
 
@@ -61,10 +62,12 @@ export class CartContextProvider extends React.Component {
       } else {
         cartList.push(item);
         message.success('장바구니에 상품이 추가되었습니다.');
+        status = 1;
       }
     } else {
       cartList.splice(foundIndex, 1);
       message.warning('장바구니에서 상품이 삭제되었습니다.');
+      status = -1;
     }
 
     this.setState({ cartList });
