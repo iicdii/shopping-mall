@@ -27,9 +27,11 @@ class Header extends Component {
               <Link to="/products">Products</Link>
             </Menu.Item>
             <Menu.Item key="/wishlist">
-              <Badge count={cartList.length}>
-                <Link to="/wishlist">Wishlist</Link>
-              </Badge>
+              <Link to="/wishlist">
+                <Badge count={cartList.length}>
+                  <span>Wishlist</span>
+                </Badge>
+              </Link>
             </Menu.Item>
           </Menu>
         </div>

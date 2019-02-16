@@ -1,0 +1,50 @@
+.wishlist-items ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.wishlist-items ul li {
+  display: block;
+  overflow: hidden;
+  line-height: 22px;
+}
+
+.wishlist-items ul li > strong,
+.wishlist-items ul li > span {
+  float: left;
+}
+
+.wishlist-items ul li > strong {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.wishlist-items ul li > p {
+  float: right;
+  margin: 0;
+}
+
+.wishlist-items em {
+  font-style: normal;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+tr.amount-row {
+  font-size: 12px;
+}
+
+tr.amount-row > td {
+  border-bottom: none;
+}
+
+tr.total-amount-row {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+tr.amount-row > td:last-child,
+tr.total-amount-row > td:last-child {
+  text-align: right;
+}

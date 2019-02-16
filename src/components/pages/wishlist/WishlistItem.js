@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { Row, Col, Checkbox, InputNumber } from 'antd';
 import numberFormat from '../../../utils/number-format';
 import './WishlistItem.css';
+import { getPrice, getSalesPrice, getOrderPrice } from './functions';
 
 export default class WishlistItem extends PureComponent {
   static propTypes = {
@@ -24,7 +25,21 @@ export default class WishlistItem extends PureComponent {
   get price() {
     const { item, cartData } = this.props;
 
-    return cartData.quantity * item.price;
+    return getPrice(cartData.quantity, item.price);
+  }
+
+  get salesPrice() {
+    const { cartData } = this.props;
+    const { discountAmount, discountRate } = cartData;
+    const { price } = this;
+
+    return getSalesPrice(price, discountAmount, discountRate);
+  }
+
+  get orderPrice() {
+    const { price, salesPrice } = this;
+
+    return getOrderPrice(price, salesPrice);
   }
 
   render() {
@@ -54,10 +69,8 @@ export default class WishlistItem extends PureComponent {
           />
         </td>
         <td className="price">{numberFormat(this.price)}원</td>
-        <td className="sales-price">{numberFormat(cartData.salesPrice)}원</td>
-        <td className="order-price">
-          {numberFormat(this.price - cartData.salesPrice)}원
-        </td>
+        <td className="sales-price">{numberFormat(this.salesPrice)}원</td>
+        <td className="order-price">{numberFormat(this.orderPrice)}원</td>
       </tr>
     );
   }

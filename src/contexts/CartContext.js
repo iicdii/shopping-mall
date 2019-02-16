@@ -27,7 +27,7 @@ export class CartContextProvider extends React.Component {
       }
     } else {
       cartList.splice(foundIndex, 1);
-      message.success('장바구니에서 상품이 삭제되었습니다.');
+      message.warning('장바구니에서 상품이 삭제되었습니다.');
     }
 
     this.setState({ cartList });

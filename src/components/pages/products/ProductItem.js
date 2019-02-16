@@ -18,7 +18,8 @@ export default class ProductItem extends PureComponent {
   };
 
   render() {
-    const { item } = this.props;
+    const { item, cart } = this.props;
+    const { cartList } = cart;
 
     return (
       <Col className="product-item" span={4}>
@@ -33,6 +34,9 @@ export default class ProductItem extends PureComponent {
           </div>
           <div className="buttons">
             <Button
+              type={
+                (cartList || []).some(n => n.id === item.id) ? 'primary' : ''
+              }
               shape="circle"
               icon="shopping-cart"
               onClick={this.handleAddCart}
