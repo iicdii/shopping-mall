@@ -3,8 +3,14 @@ import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
 import { Select } from 'antd';
 import WishlistItem from './WishlistItem';
-import { getCartData } from './functions';
+import {
+  getCartData,
+  getPrice,
+  getSalesPrice,
+  getOrderPrice,
+} from './functions';
 import coupons from '../../../data/coupons';
+import numberFormat from '../../../utils/number-format';
 import './WishlistTable.css';
 
 const Option = Select.Option;
@@ -76,6 +82,37 @@ export default class WishlistTable extends PureComponent {
     this.setState({ coupon, cartData });
   };
 
+  get total() {
+    const { items } = this.props;
+    const { cartData } = this.state;
+
+    let totalPrice = 0;
+    let totalSalesPrice = 0;
+    let totalOrderPrice = 0;
+    for (let id in cartData) {
+      if (!cartData[id].isSelected) continue;
+      const item = items.find(n => n.id === id);
+
+      const price = getPrice(cartData[id].quantity, item.price);
+      const salesPrice = getSalesPrice(
+        price,
+        cartData[id].discountAmount,
+        cartData[id].discountRate
+      );
+      const orderPrice = getOrderPrice(price, salesPrice);
+
+      totalPrice += price;
+      totalSalesPrice += salesPrice;
+      totalOrderPrice += orderPrice;
+    }
+
+    return {
+      totalPrice,
+      totalSalesPrice,
+      totalOrderPrice,
+    };
+  }
+
   render() {
     const { items } = this.props;
     const { cartData } = this.state;
@@ -144,13 +181,13 @@ export default class WishlistTable extends PureComponent {
                       </td>
                       <td colSpan={3}>
                         <ul>
-                          <li>
+                          <li className="total-price">
                             <span>총 상품금액</span>
-                            <p>10,000 원</p>
+                            <p>{numberFormat(this.total.totalPrice)} 원</p>
                           </li>
-                          <li>
+                          <li className="total-sales-price">
                             <span>총 할인금액</span>
-                            <p>10,000 원</p>
+                            <p>{numberFormat(this.total.totalSalesPrice)} 원</p>
                           </li>
                         </ul>
                       </td>
@@ -159,10 +196,13 @@ export default class WishlistTable extends PureComponent {
                       <td colSpan={3} />
                       <td colSpan={3}>
                         <ul>
-                          <li>
+                          <li className="total-order-price">
                             <strong>결제금액</strong>
                             <p>
-                              <em>10,000</em> 원
+                              <em>
+                                {numberFormat(this.total.totalOrderPrice)}
+                              </em>{' '}
+                              원
                             </p>
                           </li>
                         </ul>
