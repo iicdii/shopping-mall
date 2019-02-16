@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { Row } from 'antd';
 import PropTypes from 'prop-types';
 import ProductItem from './ProductItem';
 import { withCartContext } from '../../../contexts/CartContext';
@@ -14,11 +13,11 @@ class ProductItems extends PureComponent {
     const { items, cart } = this.props;
 
     return (
-      <Row type="flex" className="product-items" justify="space-between">
+      <div className="product-items">
         {items.map(item => (
           <ProductItem key={item.id} item={item} cart={cart} />
         ))}
-      </Row>
+      </div>
     );
   }
 }

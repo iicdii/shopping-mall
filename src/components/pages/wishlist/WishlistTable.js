@@ -104,6 +104,13 @@ export default class WishlistTable extends PureComponent {
 
   handleOrder = () => {
     const { cart } = this.props;
+    const { cartData } = this.state;
+
+    if (Object.keys(cartData || []).every(id => !cartData[id].isSelected)) {
+      alert('한 개 이상의 상품을 선택해주세요.');
+      return;
+    }
+
     cart.clearCart();
     this.setState({ cartData: {}, coupon: null });
   };

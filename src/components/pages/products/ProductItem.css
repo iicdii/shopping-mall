@@ -6,17 +6,32 @@
   width: 100%;
 }
 
+.product-items {
+  margin-left: 4px;
+  margin-right: -8px;
+  overflow: hidden;
+}
+
 .product-item {
-  padding-bottom: 40px;
+  display: block;
+  padding-left: 8px;
+  padding-right: 8px;
+  margin: 8px 4px 8px 4px;
+  width: 19%;
+  padding-bottom: 30px;
+  float: left;
 }
 
 .products .cover-image {
-  min-height: 130px;
+  height: 143px;
 }
 
 .products .title {
+  position: relative;
   margin-bottom: 8px;
   font-size: 13px;
+  height: 37px;
+  overflow: hidden;
 }
 
 .products .bottom {

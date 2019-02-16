@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
-import { Col, Button } from 'antd';
+import { Button } from 'antd';
 import PropTypes from 'prop-types';
+import truncate from 'lodash/truncate';
 import numberFormat from '../../../utils/number-format';
 import './ProductItem.css';
 
@@ -22,11 +23,11 @@ export default class ProductItem extends PureComponent {
     const { cartList } = cart;
 
     return (
-      <Col className="product-item" span={4}>
+      <div className="product-item">
         <div className="cover-image">
           <img src={item.coverImage} alt={item.title} />
         </div>
-        <div className="title">{item.title}</div>
+        <div className="title">{truncate(item.title, { length: 37 })}</div>
         <div className="bottom">
           <div className="price">
             <span className="price-text">{numberFormat(item.price)}</span>
@@ -43,7 +44,7 @@ export default class ProductItem extends PureComponent {
             />
           </div>
         </div>
-      </Col>
+      </div>
     );
   }
 }
