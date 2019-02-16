@@ -11,11 +11,11 @@ export default class ProductItem extends PureComponent {
     cart: PropTypes.object.isRequired,
   };
 
-  handleAddCart = () => {
+  handleToggleCart = () => {
     const { item, cart } = this.props;
-    const { addCart } = cart;
+    const { toggleCart } = cart;
 
-    addCart(item);
+    toggleCart(item);
   };
 
   get isInCart() {
@@ -44,7 +44,7 @@ export default class ProductItem extends PureComponent {
               type={this.isInCart ? 'primary' : ''}
               shape="circle"
               icon="shopping-cart"
-              onClick={this.handleAddCart}
+              onClick={this.handleToggleCart}
             />
           </div>
         </div>
