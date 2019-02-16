@@ -35,18 +35,14 @@ export class CartContextProvider extends React.Component {
     return status;
   };
 
-  removeCart = id => {
-    // 1: 삭제됨
-    let status = 0;
+  removeCart = ids => {
+    ids = Array.isArray(ids) ? ids : [ids];
+    const cartList = this.state.cartList.filter(n => !ids.includes(n.id));
 
-    const cartList = cloneDeep(this.state.cartList);
-    // 카트에 품목 새로 추가
-    // 이미 카트에 존재하는 품목일 경우 제거
-    const foundIndex = cartList.findIndex(n => n.id === id);
-    if (foundIndex !== -1) {
-      cartList.splice(foundIndex, 1);
-      message.success('장바구니에서 상품이 삭제되었습니다.');
-      status = 1;
+    // 1: 삭제됨
+    const status = this.state.cartList.length !== cartList.length ? 1 : 0;
+    if (status) {
+      message.warning('장바구니에서 상품이 삭제되었습니다.');
     }
 
     this.setState({ cartList });

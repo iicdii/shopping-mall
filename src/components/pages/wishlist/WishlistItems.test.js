@@ -36,4 +36,16 @@ describe('<WishlistItems>', () => {
 
     expect(col.length).toBe(th.length);
   });
+
+  it('장바구니 데이터 전부 삭제시 <WishlistItem> 언마운트', () => {
+    // 장바구니에 데이터 3개 삽입
+    provider.setState({ cartList: [...productItems].slice(0, 3) });
+    wrapper.find('WishlistItems').update();
+
+    // 데이터 삭제
+    wrapper.find('.remove-product button').simulate('click');
+    wrapper.find('WishlistItems').update();
+
+    expect(wrapper.find('WishlistItem').exists()).toBe(false);
+  });
 });

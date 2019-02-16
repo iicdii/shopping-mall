@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import PropTypes from 'prop-types';
 import cloneDeep from 'lodash/cloneDeep';
-import { Select } from 'antd';
+import { Select, Button } from 'antd';
 import WishlistItem from './WishlistItem';
 import {
   getCartData,
@@ -65,6 +65,8 @@ export default class WishlistTable extends PureComponent {
         const item = cartList.find(n => n.id === id);
 
         if (item.availableCoupon !== false) {
+          cartData[id].discountAmount = 0;
+          cartData[id].discountRate = 0;
           cartData[id][field] = coupon[field];
         }
       }
@@ -82,6 +84,24 @@ export default class WishlistTable extends PureComponent {
     this.setState({ coupon, cartData });
   };
 
+  handleRemove = () => {
+    const { cart } = this.props;
+    const cartData = cloneDeep(this.state.cartData);
+
+    const removeIds = [];
+    for (let id in cartData) {
+      if (cartData[id].isSelected) {
+        removeIds.push(id);
+        delete cartData[id];
+      }
+    }
+
+    if (removeIds.length) {
+      cart.removeCart(removeIds);
+      this.setState({ cartData });
+    }
+  };
+
   get total() {
     const { items } = this.props;
     const { cartData } = this.state;
@@ -92,6 +112,7 @@ export default class WishlistTable extends PureComponent {
     for (let id in cartData) {
       if (!cartData[id].isSelected) continue;
       const item = items.find(n => n.id === id);
+      if (!item) continue;
 
       const price = getPrice(cartData[id].quantity, item.price);
       const salesPrice = getSalesPrice(
@@ -213,6 +234,15 @@ export default class WishlistTable extends PureComponent {
               </div>
             </div>
           </div>
+        </div>
+        <div className="buttons">
+          <Button
+            className="remove-product"
+            size="small"
+            onClick={this.handleRemove}
+          >
+            선택상품 삭제
+          </Button>
         </div>
       </div>
     );
